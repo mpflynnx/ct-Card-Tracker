@@ -1,0 +1,38 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "ct"
+author = "M P Flynn"
+author-email = "mpflynnx@gmail.com"
+home-page = "https://github.com/mpflynnx/ct"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+]
+
+requires = ["click==8.0.3", "pathvalidate==2.5.0", "PyYAML==6.0"]
+
+requires-python=">=3.7"
+description-file="README.md"
+
+[tool.commitizen]
+version = "0.1.0"
+tag_format = "v$version"
+version_files = [
+  "pyproject.toml:version",
+  "src/ct/__init__.py"
+]
+
+[tool.flit.scripts]
+ct = "ct:main"
+
+[tool.flit.sdist]
+include = ["doc/"]
+exclude = [
+    "doc/*.html",
+    "test/"
+]
